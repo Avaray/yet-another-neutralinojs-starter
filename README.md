@@ -15,7 +15,7 @@
 # ⚡️ How to run
 
 1. Install [BUN](https://bun.sh/)
-2. Install [Neutralino](https://neutralino.js.org/docs/#/setup/installation) CLI globally with `bun i -g @neutralinojs/neu`
+2. Install [Neutralinojs CLI](https://neutralino.js.org/docs/#/setup/installation) globally with `bun i -g @neutralinojs/neu`
 3. Clone this repository
 4. Install all dependencies with `bun run install`
 5. Run the app in development mode with `neu run`
