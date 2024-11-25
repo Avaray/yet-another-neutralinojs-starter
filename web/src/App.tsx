@@ -8,7 +8,8 @@ import Home from './pages/Home'
 import Info from './pages/Info'
 import NotFound from './pages/NotFound'
 import Header from './components/Header';
-import Container from './components/Main';
+import Main from './components/Main';
+import Playground from './pages/Playground';
 
 export default function App() {
 
@@ -24,13 +25,14 @@ export default function App() {
   return (
     <div className='flex flex-col h-screen'>
       <Header />
-      <Container>
+      <Main>
         <Switch>
           <Route path="/" component={Home} />
           <Route path="/info" component={Info} />
+          <Route path="/playground" component={Playground} />
           <Route component={NotFound} />
         </Switch >
-      </Container>
+      </Main>
     </div>
   )
 }
