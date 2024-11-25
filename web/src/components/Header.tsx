@@ -15,9 +15,12 @@ export default function Header() {
         <Link className="btn btn-lg btn-ghost" href="/info">
           Info
         </Link>
-        <Link className="btn btn-lg btn-ghost" href="/something">
-          404
+        <Link className="btn btn-lg btn-ghost" href="/playground">
+          Playground
         </Link>
+        {/* <Link className="btn btn-lg btn-ghost" href="/something">
+          404
+        </Link> */}
       </div>
     </div>
   );
