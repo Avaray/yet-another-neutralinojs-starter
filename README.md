@@ -21,10 +21,6 @@
 5. Run the app in development mode with `neu run`
 6. Build the app for production with `neu build`
 
-# 😧 Known Issues
-
-- In development mode, you will see `Global variables patch was reverted` warning in the console. This started happening after latest Neutralinojs update. It doesn't affect the app functionality but it's annoying. Currently, I don't have a solution for this.
-
 # 👋 Credits
 
 - This project was inspired by template of [@JustPilz](https://github.com/JustPilz/neu-react-ts-vite-template)
