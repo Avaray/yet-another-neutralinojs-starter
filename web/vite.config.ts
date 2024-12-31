@@ -1,8 +1,9 @@
-import react from '@vitejs/plugin-react-swc';
-import UnoCSS from 'unocss/vite';
-import type { ResolvedConfig, Plugin } from 'vite';
-import { defineConfig } from 'vite';
-import unoConfig from './unocss';
+import react from "@vitejs/plugin-react-swc";
+import UnoCSS from "unocss/vite";
+import type { Plugin, ResolvedConfig, UserConfig } from "vite";
+import { defineConfig } from "vite";
+import unoConfig from "./unocss";
+import tailwindcss from "@tailwindcss/vite";
 
 const neutralino = (): Plugin => {
   let config: ResolvedConfig;
@@ -36,4 +37,4 @@ export default defineConfig({
     port: 4200,
     strictPort: true,
   },
-});
+}) as UserConfig;
