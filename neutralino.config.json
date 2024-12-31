@@ -28,7 +28,7 @@
     "window": {
       "borderless": false,
       "center": true,
-      "enableInspector": true,
+      "enableInspector": false,
       "exitProcessOnClose": false,
       "hidden": true,
       "icon": "/web/public/icon.png",

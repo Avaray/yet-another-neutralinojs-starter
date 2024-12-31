@@ -8,6 +8,7 @@
     "url": "https://github.com/Avaray/neutralino-react-ts-vite-bun"
   },
   "scripts": {
-    "install": "cd web && bun install && cd .. && neu update"
+    "install": "cd web && bun install && cd .. && neu update",
+    "dev": "neu run -- --window-enable-inspector"
   }
 }
