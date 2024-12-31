@@ -2,8 +2,8 @@
   "applicationId": "neutralinojs.vite.react.ts.starter",
   "cli": {
     "binaryName": "starter",
-    "binaryVersion": "5.4.0",
-    "clientVersion": "5.4.0",
+    "binaryVersion": "5.5.0",
+    "clientVersion": "5.5.0",
     "distributionPath": "/dist/",
     "extensionsPath": "/extensions/",
     "frontendLibrary": {
