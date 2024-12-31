@@ -21,6 +21,8 @@
 5. Run the app in development mode with `neu run`
 6. Build the app for production with `neu build`
 
-# 👋 Credits
+# 🛸 Contributing
 
-- This project was inspired by template of [@JustPilz](https://github.com/JustPilz/neu-react-ts-vite-template)
+If you wan't to contribute to this project, please do it on the
+[NEXT](https://github.com/Avaray/yet-another-neutralinojs-starter/tree/next)
+branch. 
