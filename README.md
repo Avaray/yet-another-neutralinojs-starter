@@ -29,37 +29,12 @@
 5. Run the app in development mode with `neu run`
 6. Build the app for production with `neu build`
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
+<!-- # TODO
+
+-  -->
+
 # 🛸 Contributing
 
 If you wan't to contribute to this project, please do it on the
 [NEXT](https://github.com/Avaray/yet-another-neutralinojs-starter/tree/next)
-branch. 
-=======
-<!-- # 😧 Known Issues
-
-- In development mode, you will see `Global variables patch was reverted` warning in the console. This started happening after latest Neutralinojs update. It doesn't affect the app functionality but it's annoying. Currently, I don't have a solution for this. -->
-
-<!-- # 👋 Credits
-
-=======
-<!-- # 😧 Known Issues
-
-- In development mode, you will see `Global variables patch was reverted` warning in the console. This started happening after latest Neutralinojs update. It doesn't affect the app functionality but it's annoying. Currently, I don't have a solution for this. -->
-
-<!-- # 👋 Credits
-
->>>>>>> Stashed changes
-- This project was inspired by template of
-  [@JustPilz](https://github.com/JustPilz/neu-react-ts-vite-template) -->
-
-<!-- # 🛸 Contributing
-
-If you wan't to contribute to this project, please do it on the
-[NEXT](https://github.com/Avaray/yet-another-neutralinojs-starter/tree/next)
-branch.  -->
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
+branch.
