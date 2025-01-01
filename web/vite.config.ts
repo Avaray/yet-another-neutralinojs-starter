@@ -3,27 +3,26 @@ import UnoCSS from "unocss/vite";
 import type { Plugin, ResolvedConfig, UserConfig } from "vite";
 import { defineConfig } from "vite";
 import unoConfig from "./unocss";
-import tailwindcss from "@tailwindcss/vite";
 
 const neutralino = (): Plugin => {
   let config: ResolvedConfig;
   return {
-    name: 'neutralino',
+    name: "neutralino",
     configResolved(resolvedConfig) {
       config = resolvedConfig;
     },
     async transformIndexHtml(html) {
-      if (config.mode === 'development') {
+      if (config.mode === "development") {
         // type AuthFileType = { nlPort: number; nlToken: string; nlConnectToken: string };
-        const authFileContent = Bun.file('../.tmp/auth_info.json');
+        const authFileContent = Bun.file("../.tmp/auth_info.json");
         const { nlPort } = await authFileContent.json();
         return html.replace(
-          '<neutralino>',
+          "<neutralino>",
           `<script src="http://localhost:${nlPort}/__neutralino_globals.js"></script>`,
         );
       }
       return html.replace(
-        '<neutralino>',
+        "<neutralino>",
         '<script src="%PUBLIC_URL%/__neutralino_globals.js"></script>',
       );
     },
