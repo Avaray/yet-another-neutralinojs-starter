@@ -19,7 +19,11 @@ const technologies = [
     logo: "i-wouter",
     url: "https://github.com/molefrog/Wouter",
   },
-  { name: "daisyUI", logo: "i-daisyui", url: "https://daisyui.com/" },
+  {
+    name: "daisyUI",
+    logo: "i-logos:daisyui-icon",
+    url: "https://daisyui.com/",
+  },
   {
     name: "TailwindCSS",
     logo: "i-logos:tailwindcss-icon",
