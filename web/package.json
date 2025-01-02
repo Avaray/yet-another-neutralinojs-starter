@@ -20,9 +20,9 @@
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
     "@eslint/js": "^9.17.0",
-    "@iconify/json": "^2.2.290",
+    "@iconify/json": "^2.2.291",
     "@types/bun": "^1.1.14",
-    "@types/node": "^22.10.2",
+    "@types/node": "^22.10.3",
     "@types/react": "^18.3.18",
     "@types/react-dom": "^18.3.5",
     "@unocss/preset-icons": "^0.65.3",
