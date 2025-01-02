@@ -16,6 +16,7 @@ export default defineConfig({
     [
       "i-daisyui",
       {
+        // path to the svg file must start with / if it's in the public folder
         "background-image": "url(/daisyui.svg)",
         "background-size": "contain",
         "background-repeat": "no-repeat",
@@ -26,7 +27,7 @@ export default defineConfig({
   shortcuts: [],
   presets: [
     presetUno(),
-    presetDaisy,
+    presetDaisy(),
     presetIcons({
       scale: 1.2,
       extraProperties: {
