@@ -1,5 +1,5 @@
 // import { app, events, os, computer } from "@neutralinojs/lib";
-import { os } from "@neutralinojs/lib";
+// import { os } from "@neutralinojs/lib";
 
 export default function Info() {
   return (
