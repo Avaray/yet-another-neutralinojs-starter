@@ -35,6 +35,6 @@
 
 # 🛸 Contributing
 
-If you wan't to contribute to this project, please do it on the
+If you want to contribute to this project, please do it on the
 [NEXT](https://github.com/Avaray/yet-another-neutralinojs-starter/tree/next)
 branch.
