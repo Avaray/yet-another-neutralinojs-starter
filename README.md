@@ -32,6 +32,8 @@
 # 📑 TODO
 
 - [ ] Make the "Playground" page better
+- [ ] Make this starter compatible with other JS Runtimes
+- [ ] Make this starter compatible with Neu's `--template` option
 - [ ] Add theme switcher
 
 # 🛸 Contributing
