@@ -2,10 +2,10 @@ import { app, events, init, window as W } from "@neutralinojs/lib";
 import { StrictMode } from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.tsx";
-// import "virtual:uno.css";
 
 import "@unocss/reset/tailwind.css";
-import "uno.css";
+import "virtual:uno.css";
+// import "uno.css";
 
 try {
   init();
