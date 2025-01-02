@@ -29,9 +29,10 @@
 5. Run the app in development mode with `neu run`
 6. Build the app for production with `neu build`
 
-<!-- # TODO
+# 📑 TODO
 
--  -->
+- [ ] Make the "Playground" page better
+- [ ] Add theme switcher
 
 # 🛸 Contributing
 
