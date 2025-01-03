@@ -63,7 +63,7 @@ const techDiv = (tech: TechnologiesType) => (
         </div>
       </div>
       {/* <div className="text-lg text-center mt-2"> */}
-      <div className="text-lg text-center mt-2 tracking-wider">
+      <div className="text-lg text-center mt-2 tracking-wider select-none">
         {tech.name}
       </div>
     </div>
