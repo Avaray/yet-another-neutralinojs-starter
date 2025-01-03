@@ -1,3 +1,4 @@
+import { Icon } from "@iconify/react";
 // import { app, events, os, computer } from "@neutralinojs/lib";
 
 export default function Info() {
@@ -10,7 +11,10 @@ export default function Info() {
         <p>Mode: <span className='capitalize font-bold'>{NL_MODE}</span></p>
       </div>
       <div className="flex-grow p-4 mr-3vw">
-        <svg className="i-simple-icons:neutralinojs h-full w-full op-3" />
+        <Icon
+          icon="simple-icons:neutralinojs"
+          className="simple-icons:neutralinojs h-full w-full opacity-20"
+        />
       </div>
     </>
   );
