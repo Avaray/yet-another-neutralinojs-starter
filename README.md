@@ -5,17 +5,16 @@
 
 ![Screenshot](web/public/screenshot.jpg)
 
-- [Vite](https://vite.dev/) with
+- [Vite](https://vite.dev/) `V6` with
   [Hot Module Replacement](https://vitejs.dev/guide/features#hot-module-replacement)
   for fast development
-- [React](https://react.dev/) for building user interfaces
+- [React](https://react.dev/) `V19` for building user interfaces
 - [TypeScript](https://www.typescriptlang.org/) for type safety
 - [Wouter](https://github.com/molefrog/wouter) for routing
-- [TailwindCSS](https://tailwindcss.com/) and [UnoCSS](https://unocss.dev/) for
-  styling
-- [daisyUI](https://daisyui.com/) with its awesome
+- [daisyUI](https://daisyui.com/) `V5` with its awesome
   [components](https://daisyui.com/components/) and
   [themes](https://daisyui.com/docs/themes/)
+- [TailwindCSS](https://tailwindcss.com/) `V4` for styling
 - [Iconify](https://iconify.design/) with tons of vector icons
 
 # ⚡️ How to run

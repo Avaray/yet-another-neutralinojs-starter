@@ -10,7 +10,7 @@
     "preview": "bunx --bun vite preview"
   },
   "dependencies": {
-    "@ameinhardt/unocss-preset-daisy": "^1.1.3",
+    "@iconify/react": "^5.1.0",
     "@neutralinojs/lib": "^5.5.0",
     "@tailwindcss/vite": "^4.0.0-beta.8",
     "react": "^19.0.0",
@@ -18,16 +18,13 @@
     "wouter": "^3.3.5"
   },
   "devDependencies": {
-    "@biomejs/biome": "1.9.4",
     "@eslint/js": "^9.17.0",
     "@iconify/json": "^2.2.291",
     "@types/bun": "^1.1.14",
     "@types/node": "^22.10.4",
     "@types/react": "^18.3.18",
     "@types/react-dom": "^18.3.5",
-    "@unocss/preset-icons": "^0.65.3",
     "@vitejs/plugin-react-swc": "^3.7.2",
-    "autoprefixer": "^10.4.20",
     "daisyui": "^5.0.0-beta.1",
     "eslint": "^9.17.0",
     "eslint-plugin-react-hooks": "^5.1.0",
@@ -36,7 +33,6 @@
     "tailwindcss": "^4.0.0-beta.8",
     "typescript": "^5.7.2",
     "typescript-eslint": "^8.19.0",
-    "unocss": "^0.65.3",
     "vite": "^6.0.7"
   }
 }

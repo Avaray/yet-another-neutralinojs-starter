@@ -4,6 +4,22 @@
   themes: all;
 }
 
+@plugin "daisyui/theme" {
+  name: "dark";
+  default: true;
+  --depth: 0;
+  --noise: 0;
+  --gloss: 0;
+}
+
+/* @plugin "daisyui/theme" {
+  name: "light";
+  default: false;
+  --depth: 0;
+  --noise: 0;
+  --gloss: 0;
+} */
+
 html,
 body {
   margin: 0;
@@ -11,7 +27,7 @@ body {
 }
 
 .btn {
-  @apply no-animation;
+  /* @apply no-animation; */
 }
 
 .logo {

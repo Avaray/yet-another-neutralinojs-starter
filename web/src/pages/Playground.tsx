@@ -1,5 +1,5 @@
+import React from "react";
 import { os } from "@neutralinojs/lib";
-import { Centered } from "../components/Centered";
 import { useState } from "react";
 
 export default function Playground() {
@@ -22,14 +22,14 @@ export default function Playground() {
 
   return (
     <>
-      <div className="flex items-center gap-20px p-20">
+      <div className="flex items-center gap-5 p-5">
         <div>
           <input
             type="range"
             min={0}
             max="100"
             value={rangeValue}
-            className="range min-w-40vw"
+            className="range min-w-[40vw]"
             step="25"
             onChange={handleRangeChange}
           />
