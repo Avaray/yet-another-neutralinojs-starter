@@ -46,6 +46,7 @@
     "events.*",
     "filesystem.*",
     "os.*",
+    "storage.*",
     "window.*"
   ],
   "singlePageServe": true,
