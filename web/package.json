@@ -19,8 +19,8 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",
-    "@iconify/json": "^2.2.291",
     "@types/bun": "^1.1.14",
+    "@types/deno": "^2.0.0",
     "@types/node": "^22.10.4",
     "@types/react": "^18.3.18",
     "@types/react-dom": "^18.3.5",
