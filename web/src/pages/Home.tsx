@@ -49,7 +49,7 @@ const technologies = [
 const techDiv = (tech: TechnologiesType) => (
   <div
     key={tech.name}
-    className="min-w-[100px] min-h-[100px] max-w-[148px] max-h-[148px] w-[10vw] h-[10vw] aspect-square m-2"
+    className="logo min-w-[100px] min-h-[100px] max-w-[148px] max-h-[148px] w-[10vw] h-[10vw] aspect-square m-2"
   >
     <div className="flex flex-col h-full">
       <div className="flex-1 relative">
