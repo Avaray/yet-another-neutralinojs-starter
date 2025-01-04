@@ -8,9 +8,9 @@ export default function Info() {
         <p>Framework version: <span className='font-bold'>{NL_VERSION}</span></p>
         <p>Client version: <span className='font-bold'>{NL_CVERSION}</span></p>
         <p>Mode: <span className='capitalize font-bold'>{NL_MODE}</span></p>
-      <div className="flex flex-grow p-3 m-3 flex-col">
+      <div className="flex flex-grow p-3 m-3 flex-col whitespace-nowrap">
       </div>
-      <div className="flex-grow p-4 mr-3vw">
+      <div className="flex-grow p-4">
         <Icon
           icon="simple-icons:neutralinojs"
           className="h-full w-full opacity-10"
