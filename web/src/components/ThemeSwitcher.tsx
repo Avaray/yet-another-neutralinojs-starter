@@ -8,13 +8,10 @@ export const ThemesDrawer = () => {
     document.documentElement.getAttribute("data-theme") || themesList[0]
   );
 
-  const randomTheme = () =>
-    themesList[Math.floor(Math.random() * themesList.length)];
-
   const handleThemeChange = (newTheme: string) => {
     document.documentElement.setAttribute(
       "data-theme",
-      newTheme || randomTheme(),
+      newTheme || themesList[Math.floor(Math.random() * themesList.length)],
     );
     setTheme(newTheme);
   };
