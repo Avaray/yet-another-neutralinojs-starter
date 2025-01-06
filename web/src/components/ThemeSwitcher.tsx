@@ -58,7 +58,7 @@ export const ThemesDrawer = () => {
         >
         </label>
         <ul className="text-base-content min-h-full w-80 select-none">
-          {themesList.map((theme: string) => (
+          {themesList.sort().map((theme: string) => (
             <li
               className="capitalize p-2"
               data-theme={theme}
