@@ -42,7 +42,7 @@ export const ThemesDrawer = () => {
       <div className="drawer-content" title="Change theme">
         <label
           htmlFor="my-drawer"
-          className="btn btn-ghost drawer-button"
+          className="btn btn-lg btn-ghost drawer-button"
         >
           <Icon
             icon="ion:color-filter-sharp"
