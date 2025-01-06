@@ -1,5 +1,6 @@
 import { useLocation } from "wouter";
 import { ThemesDrawer } from "./ThemeSwitcher";
+import { Icon } from "@iconify/react";
 
 export default function Header() {
   const [, setLocation] = useLocation();
@@ -28,6 +29,12 @@ export default function Header() {
           onClick={() => setLocation("/playground")}
         >
           Playground
+        </button>
+        <button
+          className="btn btn-lg btn-ghost"
+          onClick={() => setLocation("/settings")}
+        >
+          <Icon icon="ion:md-options" className="w-8 h-8" />
         </button>
         <ThemesDrawer />
       </div>
