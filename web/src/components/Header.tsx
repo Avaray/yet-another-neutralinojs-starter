@@ -1,6 +1,8 @@
-import { Link } from "wouter";
+import { useLocation } from "wouter";
+import { ThemesDrawer } from "./ThemeSwitcher";
 
 export default function Header() {
+  const [, setLocation] = useLocation();
   return (
     <div className="w-full navbar">
       <div className="navbar-start">
@@ -9,15 +11,25 @@ export default function Header() {
         </span>
       </div>
       <div className="navbar-end gap-x-2">
-        <Link className="btn btn-lg btn-ghost" href="/">
+        <button
+          className="btn btn-lg btn-ghost"
+          onClick={() => setLocation("/")}
+        >
           Home
-        </Link>
-        <Link className="btn btn-lg btn-ghost" href="/info">
+        </button>
+        <ThemesDrawer />
+        <button
+          className="btn btn-lg btn-ghost"
+          onClick={() => setLocation("/info")}
+        >
           Info
-        </Link>
-        <Link className="btn btn-lg btn-ghost" href="/playground">
+        </button>
+        <button
+          className="btn btn-lg btn-ghost"
+          onClick={() => setLocation("/playground")}
+        >
           Playground
-        </Link>
+        </button>
       </div>
     </div>
   );
