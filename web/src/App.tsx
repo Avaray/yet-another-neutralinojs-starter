@@ -29,6 +29,7 @@ export default function App() {
           <Route path="/" component={Home} />
           <Route path="/info" component={Info} />
           <Route path="/playground" component={Playground} />
+          <Route path="/settings" component={Settings} />
           <Route component={NotFound} />
         </Switch>
       </Main>
