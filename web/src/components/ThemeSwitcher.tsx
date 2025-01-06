@@ -37,9 +37,13 @@ export const ThemesDrawer = () => {
   }, [theme]);
 
   return (
-    <div className="drawer drawer-end z-50">
-      <input id="my-drawer" type="checkbox" className="drawer-toggle" />
-      <div className="drawer-content" title="Change theme">
+    <div className="drawer drawer-end z-50 w-min">
+      <input
+        id="my-drawer"
+        type="checkbox"
+        className="drawer-toggle"
+      />
+      <div className="drawer-content w-min" title="Change theme">
         <label
           htmlFor="my-drawer"
           className="btn btn-lg btn-ghost drawer-button"
@@ -58,18 +62,19 @@ export const ThemesDrawer = () => {
         >
         </label>
         <ul className="text-base-content min-h-full w-80 select-none">
-          {themesList.sort().map((theme: string) => (
+          {themesList.sort().map((theme: string, index: number) => (
             <li
+              key={`${theme}-${index}`}
               className="capitalize p-2"
               data-theme={theme}
               onClick={() => handleThemeChange(theme)}
             >
-              <div key={theme} className="flex items-center">
+              <div className="flex items-center">
                 {["bg-primary", "bg-secondary", "bg-accent"].map((
                   color,
                 ) => (
                   <div
-                    key={color}
+                    key={`${color}-${index}`}
                     className={`w-4 h-4 rounded-full mr-2 ${color}`}
                   >
                   </div>
