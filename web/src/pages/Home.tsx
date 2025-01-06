@@ -44,6 +44,11 @@ const technologies = [
     logo: "line-md:iconify2",
     url: "https://iconify.design/",
   },
+  {
+    name: "i18next",
+    logo: "simple-icons:i18next",
+    url: "https://www.i18next.com/",
+  },
 ];
 
 const techDiv = (tech: TechnologiesType) => (
