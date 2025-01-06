@@ -17,7 +17,6 @@ export default function Header() {
         >
           Home
         </button>
-        <ThemesDrawer />
         <button
           className="btn btn-lg btn-ghost"
           onClick={() => setLocation("/info")}
@@ -30,6 +29,7 @@ export default function Header() {
         >
           Playground
         </button>
+        <ThemesDrawer />
       </div>
     </div>
   );
