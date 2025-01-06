@@ -33,7 +33,10 @@
 - [ ] Make the "Playground" page better
 - [ ] Make this starter compatible with other JS Runtimes
 - [ ] Make this starter compatible with Neu's `--template` option
+- [ ] Add Settings page
 - [ ] Add theme switcher
+- [ ] Add state management
+- [ ] Add internationalization (i18next)
 
 # 🛸 Contributing
 
