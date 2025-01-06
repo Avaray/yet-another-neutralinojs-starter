@@ -2,11 +2,11 @@
 
 @plugin "daisyui" {
   themes: all;
+  exclude: rootscrollgutter;
 }
 
 @plugin "daisyui/theme" {
   name: "dark";
-  default: true;
   --depth: 0;
   --noise: 0;
   --gloss: 0;
@@ -32,9 +32,10 @@ body {
 
 .logo {
   will-change: filter;
-  transition: filter 250ms;
+  transition: filter 50ms;
 }
 
 .logo:hover {
-  filter: drop-shadow(0 0 1em rgba(135, 193, 230, 0.25));
+  filter: drop-shadow(0 0 2em rgba(135, 193, 230, 0.45));
+  /* filter: drop-shadow(0 0 1em var(--color-success)); */
 }
