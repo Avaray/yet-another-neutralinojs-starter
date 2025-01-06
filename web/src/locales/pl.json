@@ -1,0 +1,6 @@
+{
+  "operatingSystem": "System operacyjny",
+  "frameworkVersion": "Wersja frameworku",
+  "clientVersion": "Wersja klienta",
+  "mode": "Tryb"
+}
