@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Icon } from "@iconify/react";
 import themesList from "daisyui/functions/themeOrder.js";
 
@@ -36,6 +37,8 @@ export const ThemesDrawer = () => {
     return () => document.removeEventListener("keydown", handleKeyDown);
   }, [theme]);
 
+  const { t } = useTranslation();
+
   return (
     <div className="drawer drawer-end z-50 w-min">
       <input
@@ -43,7 +46,7 @@ export const ThemesDrawer = () => {
         type="checkbox"
         className="drawer-toggle"
       />
-      <div className="drawer-content w-min" title="Change theme">
+      <div className="drawer-content w-min" title={t("theme")}>
         <label
           htmlFor="my-drawer"
           className="btn btn-lg btn-ghost btn-square"
