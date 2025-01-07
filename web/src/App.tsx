@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { window as W } from "@neutralinojs/lib";
 import { Route, Switch } from "wouter";
 
+import "./i18next.ts";
 import "./App.css";
 
 import Home from "./pages/Home.tsx";
