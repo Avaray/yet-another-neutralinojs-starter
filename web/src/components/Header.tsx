@@ -11,30 +11,40 @@ export default function Header() {
           Neutralino<span className="text-xl">js</span>
         </span>
       </div>
-      <div className="navbar-end gap-x-2">
+      <div className="navbar-end p-3 gap-x-2">
         <button
-          className="btn btn-lg btn-ghost"
+          title="Home"
+          className="btn btn-lg btn-ghost btn-square"
           onClick={() => setLocation("/")}
         >
-          Home
+          <Icon icon="si:home-detailed-fill" className="w-8 h-8" />
         </button>
         <button
-          className="btn btn-lg btn-ghost"
+          title="Info"
+          className="btn btn-lg btn-ghost btn-square"
           onClick={() => setLocation("/info")}
         >
-          Info
+          <Icon icon="mynaui:info-hexagon-solid" className="w-8 h-8" />
         </button>
         <button
-          className="btn btn-lg btn-ghost"
+          title="Playground"
+          className="btn btn-lg btn-ghost btn-square"
           onClick={() => setLocation("/playground")}
         >
-          Playground
+          <Icon
+            icon="game-icons:perspective-dice-six-faces-random"
+            className="w-8 h-8"
+          />
         </button>
         <button
-          className="btn btn-lg btn-ghost"
+          title="Settings"
+          className="btn btn-lg btn-ghost btn-square"
           onClick={() => setLocation("/settings")}
         >
-          <Icon icon="ion:md-options" className="w-8 h-8" />
+          <Icon
+            icon="ion:md-options"
+            className="w-8 h-8"
+          />
         </button>
         <ThemesDrawer />
       </div>
