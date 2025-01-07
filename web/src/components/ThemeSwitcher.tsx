@@ -46,11 +46,11 @@ export const ThemesDrawer = () => {
       <div className="drawer-content w-min" title="Change theme">
         <label
           htmlFor="my-drawer"
-          className="btn btn-lg btn-ghost drawer-button"
+          className="btn btn-lg btn-ghost btn-square"
         >
           <Icon
             icon="ion:color-filter-sharp"
-            className="w-8 h-8 text-accent"
+            className="w-8 h-8"
           />
         </label>
       </div>
