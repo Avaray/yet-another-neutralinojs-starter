@@ -13,8 +13,11 @@
     "@iconify/react": "^5.2.0",
     "@neutralinojs/lib": "^5.5.0",
     "@tailwindcss/vite": "^4.0.0-beta.8",
+    "i18next": "^24.2.1",
+    "i18next-resources-to-backend": "^1.2.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-i18next": "^15.4.0",
     "wouter": "^3.3.5"
   },
   "devDependencies": {
