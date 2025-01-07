@@ -6,3 +6,4 @@ dist
 neutralino.js
 node_modules
 *.tsbuildinfo
+bun.lock*
