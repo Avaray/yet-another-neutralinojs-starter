@@ -9,7 +9,7 @@
   "normal": "Normalny",
   "maximized": "Zmaksymalizowany",
   "fullScreen": "Pełny ekran",
-  "operatingSystem": "System operacyjny",
+  "os": "System operacyjny",
   "frameworkVersion": "Wersja frameworku",
   "clientVersion": "Wersja klienta",
   "mode": "Tryb"

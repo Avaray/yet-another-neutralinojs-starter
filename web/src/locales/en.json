@@ -9,7 +9,7 @@
   "normal": "Normal",
   "maximized": "Maximized",
   "fullScreen": "Full Screen",
-  "operatingSystem": "Operating System",
+  "os": "Operating System",
   "frameworkVersion": "Framework Version",
   "clientVersion": "Client Version",
   "mode": "Mode"
