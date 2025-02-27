@@ -8,7 +8,6 @@
     "url": "https://github.com/Avaray/yet-another-neutralinojs-starter"
   },
   "scripts": {
-    "install": "cd web && bun install && cd .. && neu update",
     "dev": "neu run -- --window-enable-inspector"
   }
 }
