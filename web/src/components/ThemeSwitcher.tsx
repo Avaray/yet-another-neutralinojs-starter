@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Icon } from "@iconify/react";
+
+// @ts-ignore
 import themesList from "daisyui/functions/themeOrder.js";
 
 export const ThemesDrawer = () => {
