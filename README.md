@@ -1,4 +1,4 @@
-# 💜 Neumatic
+<!-- # 💜 Neumatic -->
 
 ![](/logo_github.png)
 
