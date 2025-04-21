@@ -1,7 +1,7 @@
 {
-  "applicationId": "neutralinojs.vite.react.ts.starter",
+  "applicationId": "neumatic",
   "cli": {
-    "binaryName": "starter",
+    "binaryName": "neumatic",
     "binaryVersion": "6.0.0",
     "clientVersion": "6.0.0",
     "distributionPath": "/dist/",
@@ -36,7 +36,7 @@
       "minHeight": 400,
       "minWidth": 700,
       "resizable": true,
-      "title": "STARTER",
+      "title": "Neumatic",
       "useSavedState": false
     }
   },

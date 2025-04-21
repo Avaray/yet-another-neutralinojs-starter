@@ -1,4 +1,4 @@
-# 🥱 Yet Another Neutralinojs Starter
+# 💜 Neumatic
 
 **Highly non-opinionated** starter for building a desktop applications using
 [Neutralinojs](https://neutralino.js.org/docs/)
