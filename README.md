@@ -1,6 +1,4 @@
-<!-- # 💜 Neumatic -->
-
-![](/logo_github.png)
+# 💜 Neumatic
 
 **Highly non-opinionated** starter for building a desktop applications using
 [Neutralinojs](https://neutralino.js.org/docs/)
