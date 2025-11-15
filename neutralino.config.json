@@ -2,8 +2,8 @@
   "applicationId": "neumatic",
   "cli": {
     "binaryName": "neumatic",
-    "binaryVersion": "6.0.0",
-    "clientVersion": "6.0.0",
+    "binaryVersion": "6.3.0",
+    "clientVersion": "6.3.0",
     "distributionPath": "/dist/",
     "extensionsPath": "/extensions/",
     "frontendLibrary": {
