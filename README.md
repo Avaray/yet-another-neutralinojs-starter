@@ -5,7 +5,7 @@
 
 ![Screenshot](web/public/screenshot.jpg)
 
-- [Vite](https://vite.dev/) `V6` with
+- [Vite](https://vite.dev/) `V7` with
   [Hot Module Replacement](https://vitejs.dev/guide/features#hot-module-replacement)
   for fast development
 - [React](https://react.dev/) `V19` for building user interfaces
