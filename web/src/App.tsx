@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { window as W } from "@neutralinojs/lib";
+import { storage, window as W } from "@neutralinojs/lib";
 import { Route, Switch } from "wouter";
 
 import "./i18next.ts";
@@ -11,6 +11,26 @@ import NotFound from "./pages/NotFound.tsx";
 import Header from "./components/Header.tsx";
 import Main from "./components/Main.tsx";
 import Playground from "./pages/Playground.tsx";
+import Settings from "./pages/Settings.tsx";
+
+interface AppSettings {
+  windowMode: "normal" | "maximized" | "fullscreen";
+  windowSize: { width: number; height: number };
+  language: string;
+}
+
+async function getSettings(): Promise<AppSettings | null> {
+  try {
+    const settings = await storage.getData("appSettings");
+    if (!settings) {
+      throw new Error("No settings found in storage."); // Custom error for no settings
+    }
+    return JSON.parse(settings) as AppSettings; // Assuming the settings are stored as a JSON string
+  } catch (error) {
+    console.error("Error retrieving settings:");
+    return null; // Return null if there's an error
+  }
+}
 
 export default function App() {
   // This is part of "Eye protection" feature
@@ -19,7 +39,27 @@ export default function App() {
   // I set app window to be hidden by default and then show it after React is loaded
   // Dev tools (if enabled) will show up before the main window is shown
   useEffect(() => {
-    W.show();
+    (async () => {
+      const settings = await getSettings();
+
+      if (settings === null) {
+        console.warn(
+          "Using default settings as no valid settings were loaded.",
+        );
+        // Load default settings or handle accordingly
+        const defaultSettings: AppSettings = {
+          windowMode: "normal",
+          windowSize: { width: 800, height: 600 },
+          language: "en",
+        };
+        // Proceed with opening the app window using defaultSettings
+      } else {
+        console.log("Settings loaded successfully:", settings);
+        // Proceed with opening the app window and using the loaded settings
+      }
+
+      await W.show();
+    })();
   }, []);
 
   return (
