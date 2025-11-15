@@ -1,6 +1,7 @@
-import react from "@vitejs/plugin-react-swc";
+import { readFileSync } from "node:fs";
 import { defineConfig } from "vite";
 import type { Plugin, ResolvedConfig, UserConfig } from "vite";
+import react from "@vitejs/plugin-react-swc";
 import tailwindcss from "@tailwindcss/vite";
 
 const neutralino = (): Plugin => {
@@ -12,9 +13,13 @@ const neutralino = (): Plugin => {
     },
     async transformIndexHtml(html) {
       if (config.mode === "development") {
-        // type AuthFileType = { nlPort: number; nlToken: string; nlConnectToken: string };
-        const authFileContent = Bun.file("../.tmp/auth_info.json");
-        const { nlPort } = await authFileContent.json();
+        const authFileContent = readFileSync("../.tmp/auth_info.json", "utf-8");
+        const authInfo = JSON.parse(authFileContent) as {
+          nlPort: number;
+          nlToken: string;
+          nlConnectToken: string;
+        };
+        const { nlPort } = authInfo;
         return html.replace(
           "<neutralino>",
           `<script src="http://localhost:${nlPort}/__neutralino_globals.js"></script>`,
@@ -22,7 +27,7 @@ const neutralino = (): Plugin => {
       }
       return html.replace(
         "<neutralino>",
-        '<script src="%PUBLIC_URL%/__neutralino_globals.js"></script>',
+        `<script src="%PUBLIC_URL%/__neutralino_globals.js"></script>`,
       );
     },
   };
