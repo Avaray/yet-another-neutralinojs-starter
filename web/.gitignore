@@ -26,4 +26,3 @@ dist-ssr
 # Lock files
 package-lock.json
 yarn.lock
-bun.lock*
