@@ -87,6 +87,10 @@ export default function App() {
 
       // Show the window
       await W.show();
+      // Wait for paint to complete
+      await new Promise((resolve) =>
+        requestAnimationFrame(() => requestAnimationFrame(resolve))
+      );
     })();
 
     // Handle window resize - save dimensions only in normal mode
