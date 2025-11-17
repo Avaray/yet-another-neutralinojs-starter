@@ -27,38 +27,44 @@ export const ThemesDrawer = (
     onChange?.(newTheme);
   };
 
-  useEffect(() => {
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.ctrlKey) {
-        const currentIndex = themesList.indexOf(theme);
-        if (event.key === "ArrowLeft" || event.key === "ArrowUp") {
-          const previousTheme = themesList[currentIndex - 1] ??
-            themesList[themesList.length - 1];
-          handleThemeChange(previousTheme);
-        } else if (event.key === "ArrowRight" || event.key === "ArrowDown") {
-          const nextTheme = themesList[currentIndex + 1] ?? themesList[0];
-          handleThemeChange(nextTheme);
-        }
+  // Handle arrow keys on the select to live update theme during navigation
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLSelectElement>) => {
+    if (
+      event.key === "ArrowLeft" ||
+      event.key === "ArrowUp" ||
+      event.key === "ArrowRight" ||
+      event.key === "ArrowDown"
+    ) {
+      const currentIndex = themesList.indexOf(theme);
+      let newIndex = currentIndex;
+      if (event.key === "ArrowLeft" || event.key === "ArrowUp") {
+        newIndex = (currentIndex - 1 + themesList.length) % themesList.length;
+      } else if (event.key === "ArrowRight" || event.key === "ArrowDown") {
+        newIndex = (currentIndex + 1) % themesList.length;
       }
-    };
-    document.addEventListener("keydown", handleKeyDown);
-    return () => document.removeEventListener("keydown", handleKeyDown);
-  }, [theme]);
+      const newTheme = themesList[newIndex];
+      if (newTheme !== theme) {
+        handleThemeChange(newTheme);
+        event.preventDefault();
+      }
+    }
+  };
 
   return (
     <div>
-      {themesList.map((themeName: string) => (
-        <button
-          key={themeName}
-          className={`btn btn-sm m-1 ${
-            theme === themeName ? "btn-primary" : "btn-outline"
-          }`}
-          onClick={() => handleThemeChange(themeName)}
-          aria-label={t("theme") + ": " + themeName}
-        >
-          {themeName}
-        </button>
-      ))}
+      <select
+        className="select select-bordered w-full max-w-xs"
+        value={theme}
+        onChange={(e) => handleThemeChange(e.target.value)}
+        onKeyDown={handleKeyDown}
+        aria-label={t("theme")}
+      >
+        {themesList.map((themeName: string) => (
+          <option key={themeName} value={themeName}>
+            {themeName}
+          </option>
+        ))}
+      </select>
     </div>
   );
 };
