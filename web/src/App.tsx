@@ -152,7 +152,16 @@ export default function App() {
       clearTimeout(resizeTimeout);
       events.off("windowClose", handleWindowClose);
     };
-  }, []); // EMPTY DEPS - only run once!
+  }, []);
+
+  // Disable context menu
+  useEffect(() => {
+    const disableContextMenu = (e: MouseEvent) => e.preventDefault();
+    document.addEventListener("contextmenu", disableContextMenu);
+    return () => {
+      document.removeEventListener("contextmenu", disableContextMenu);
+    };
+  }, []);
 
   return (
     <>
