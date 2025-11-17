@@ -46,6 +46,7 @@ export default function App() {
     if (hasInitializedRef.current) {
       return;
     }
+
     hasInitializedRef.current = true;
 
     (async () => {
@@ -88,6 +89,42 @@ export default function App() {
       await W.show();
     })();
 
+    // Handle window resize - save dimensions only in normal mode
+    let resizeTimeout: ReturnType<typeof setTimeout>;
+    const handleResize = async () => {
+      try {
+        const currentSettings = await getSettings();
+        if (!currentSettings) return;
+
+        // Only save dimensions in normal mode
+        if (currentSettings.windowMode === "normal") {
+          const isMaximized = await W.isMaximized();
+          if (!isMaximized) {
+            const size = await W.getSize();
+            // Ensure we have valid numbers
+            if (size.width && size.height) {
+              const updatedSettings: AppSettings = {
+                ...currentSettings,
+                windowSize: { width: size.width, height: size.height },
+              };
+              await saveSettings(updatedSettings);
+            }
+          }
+        }
+      } catch (error) {
+        console.error("Failed to save window size:", error);
+      }
+    };
+
+    const debouncedResize = () => {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(handleResize, 500);
+    };
+
+    // Cast to Window type to avoid the globals.d.ts conflict
+    const browserWindow = window as unknown as Window;
+    browserWindow.addEventListener("resize", debouncedResize);
+
     // Handle window close event - save settings before exit
     const handleWindowClose = async () => {
       try {
@@ -105,8 +142,10 @@ export default function App() {
 
     events.on("windowClose", handleWindowClose);
 
-    // Cleanup event listener
+    // Cleanup event listeners
     return () => {
+      browserWindow.removeEventListener("resize", debouncedResize);
+      clearTimeout(resizeTimeout);
       events.off("windowClose", handleWindowClose);
     };
   }, []); // EMPTY DEPS - only run once!
