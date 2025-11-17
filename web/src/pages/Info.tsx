@@ -34,7 +34,7 @@ export default function Info() {
         </p>
         {modeElement(NL_MODE)}
       </div>
-      <div className="flex-grow p-4">
+      <div className="grow p-4">
         <Icon
           icon="simple-icons:neutralinojs"
           className="h-full w-full opacity-10"
