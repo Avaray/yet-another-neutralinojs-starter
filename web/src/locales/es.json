@@ -1,0 +1,17 @@
+{
+  "home": "Inicio",
+  "info": "Información",
+  "playground": "Área de pruebas",
+  "settings": "Configuración",
+  "exit": "Salir",
+  "theme": "Tema",
+  "language": "Idioma",
+  "normal": "Normal",
+  "maximized": "Maximizado",
+  "fullScreen": "Pantalla completa",
+  "windowMode": "Modo de ventana",
+  "os": "Sistema operativo",
+  "frameworkVersion": "Versión del framework",
+  "clientVersion": "Versión del cliente",
+  "mode": "Modo"
+}

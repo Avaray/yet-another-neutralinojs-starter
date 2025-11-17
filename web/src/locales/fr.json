@@ -1,0 +1,17 @@
+{
+  "home": "Accueil",
+  "info": "Info",
+  "playground": "Terrain de jeu",
+  "settings": "Paramètres",
+  "exit": "Quitter",
+  "theme": "Thème",
+  "language": "Langue",
+  "normal": "Normal",
+  "maximized": "Maximisé",
+  "fullScreen": "Plein écran",
+  "windowMode": "Mode fenêtre",
+  "os": "Système d'exploitation",
+  "frameworkVersion": "Version du framework",
+  "clientVersion": "Version du client",
+  "mode": "Mode"
+}
