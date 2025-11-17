@@ -10,7 +10,7 @@ i18n
     ),
   )
   .init({
-    lng: "pl",
+    lng: "en", // Default language, will be overridden by saved settings
     fallbackLng: "en",
     ns: ["translation"],
     defaultNS: "translation",
