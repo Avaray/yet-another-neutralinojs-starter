@@ -1,5 +1,4 @@
 import { useLocation } from "wouter";
-import { ThemesDrawer } from "./ThemeSwitcher";
 import { Icon } from "@iconify/react";
 
 export default function Header() {
@@ -46,7 +45,6 @@ export default function Header() {
             className="w-8 h-8"
           />
         </button>
-        <ThemesDrawer />
       </div>
     </div>
   );
