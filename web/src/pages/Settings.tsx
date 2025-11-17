@@ -3,6 +3,18 @@ import { storage, window as W } from "@neutralinojs/lib";
 import { useTranslation } from "react-i18next";
 import { ThemesDrawer } from "../components/ThemeSwitcher";
 
+const localeFiles = import.meta.glob("../locales/*.json");
+
+async function getAvailableLanguages(): Promise<string[]> {
+  return Object.keys(localeFiles)
+    .map((path) => {
+      const m = path.match(/\.\/locales\/(.+)\.json$/) ||
+        path.match(/..\/locales\/(.+)\.json$/);
+      return m ? m[1] : null;
+    })
+    .filter(Boolean) as string[];
+}
+
 interface AppSettings {
   windowMode: "normal" | "maximized" | "fullscreen";
   windowSize: { width: number; height: number };
@@ -15,6 +27,8 @@ const STORAGE_KEY = "appSettings";
 export default function Settings() {
   const { t, i18n } = useTranslation();
 
+  const [availableLanguages, setAvailableLanguages] = useState<string[]>([]);
+
   const [settings, setSettings] = useState<AppSettings | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -25,6 +39,10 @@ export default function Settings() {
   const hasLoadedRef = useRef(false); // Ensure we only load once EVER
   const isChangingLanguageRef = useRef(false); // Prevent double language changes
   const saveTimeoutRef = useRef<NodeJS.Timeout | null>(null); // Debounce saves
+
+  useEffect(() => {
+    getAvailableLanguages().then(setAvailableLanguages);
+  }, []);
 
   // Load settings from storage on mount - ONLY ONCE
   useEffect(() => {
@@ -284,14 +302,16 @@ export default function Settings() {
       </div>
 
       <div className="mb-6">
-        <label className="block mb-2">{t("language")}</label>
         <select
           value={settings.language}
           onChange={(e) => updateLanguage(e.target.value)}
           className="select select-bordered w-full max-w-xs"
         >
-          <option value="en">English</option>
-          <option value="pl">Polski</option>
+          {availableLanguages.map((lang) => (
+            <option key={lang} value={lang}>
+              {lang.toUpperCase()}
+            </option>
+          ))}
         </select>
       </div>
 
