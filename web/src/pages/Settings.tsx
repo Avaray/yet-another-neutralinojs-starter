@@ -162,7 +162,6 @@ export default function Settings() {
   // Handle window mode change with proper transitions
   const updateWindowMode = async (mode: AppSettings["windowMode"]) => {
     if (!settings) return;
-
     const currentMode = settings.windowMode;
 
     try {
@@ -172,6 +171,9 @@ export default function Settings() {
       if (currentMode === "fullscreen" && mode !== "fullscreen") {
         console.log("Exiting fullscreen");
         await W.exitFullScreen();
+        // CRITICAL: Ensure window is visible and focused after exiting fullscreen
+        await W.show();
+        await W.focus();
       }
 
       if (currentMode === "maximized" && mode !== "maximized") {
@@ -179,17 +181,23 @@ export default function Settings() {
         await W.unmaximize();
       }
 
+      // Small delay to let the window manager settle
+      await new Promise((resolve) => setTimeout(resolve, 100));
+
       // Then apply new mode
       if (mode === "maximized") {
         console.log("Maximizing window");
         await W.maximize();
+        await W.focus();
       } else if (mode === "fullscreen") {
         console.log("Entering fullscreen");
         await W.setFullScreen();
       } else {
-        // Normal mode - ensure we're restored
+        // Normal mode - ensure we're restored and visible
         console.log("Restoring to normal");
         await W.unmaximize();
+        await W.show();
+        await W.focus();
       }
 
       // Update state after successful mode change using functional update
@@ -200,6 +208,13 @@ export default function Settings() {
       });
     } catch (error) {
       console.warn("Failed to update window mode", error);
+      // If mode change fails, force window to be visible
+      try {
+        await W.show();
+        await W.focus();
+      } catch (e) {
+        console.error("Failed to recover window visibility", e);
+      }
     }
   };
 
