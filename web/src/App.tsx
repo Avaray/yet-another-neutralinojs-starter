@@ -1,6 +1,7 @@
-import { useEffect } from "react";
-import { storage, window as W } from "@neutralinojs/lib";
+import { useEffect, useRef } from "react";
+import { app, events, storage, window as W } from "@neutralinojs/lib";
 import { Route, Switch } from "wouter";
+import { useTranslation } from "react-i18next";
 
 import "./i18next.ts";
 import "./App.css";
@@ -17,53 +18,101 @@ interface AppSettings {
   windowMode: "normal" | "maximized" | "fullscreen";
   windowSize: { width: number; height: number };
   language: string;
+  theme: string;
 }
+
+const STORAGE_KEY = "appSettings";
 
 async function getSettings(): Promise<AppSettings | null> {
   try {
-    const settings = await storage.getData("appSettings");
-    if (!settings) {
-      throw new Error("No settings found in storage."); // Custom error for no settings
-    }
-    return JSON.parse(settings) as AppSettings; // Assuming the settings are stored as a JSON string
-  } catch (error) {
-    console.error("Error retrieving settings:");
-    return null; // Return null if there's an error
+    const settingsRaw = await storage.getData(STORAGE_KEY);
+    if (!settingsRaw) throw new Error("No settings in storage");
+    return JSON.parse(settingsRaw) as AppSettings;
+  } catch {
+    return null;
   }
 }
 
-export default function App() {
-  // This is part of "Eye protection" feature
-  // By default window is starting with white background (changing HTML background color does not help)
-  // So it causes a flash of white screen when the app is starting
-  // I set app window to be hidden by default and then show it after React is loaded
-  // Dev tools (if enabled) will show up before the main window is shown
-  useEffect(() => {
-    (async () => {
-      const settings = await getSettings();
+async function saveSettings(settings: AppSettings) {
+  await storage.setData(STORAGE_KEY, JSON.stringify(settings));
+}
 
-      if (settings === null) {
-        console.warn(
-          "Using default settings as no valid settings were loaded.",
-        );
-        // Load default settings or handle accordingly
-        const defaultSettings: AppSettings = {
+export default function App() {
+  const { i18n } = useTranslation();
+  const hasInitializedRef = useRef(false);
+
+  useEffect(() => {
+    // Only run initialization once
+    if (hasInitializedRef.current) {
+      return;
+    }
+    hasInitializedRef.current = true;
+
+    (async () => {
+      let settings = await getSettings();
+      if (!settings) {
+        settings = {
           windowMode: "normal",
           windowSize: { width: 800, height: 600 },
           language: "en",
+          theme: "light",
         };
-        // Proceed with opening the app window using defaultSettings
-      } else {
-        console.log("Settings loaded successfully:", settings);
-        // Proceed with opening the app window and using the loaded settings
+        await saveSettings(settings);
       }
 
+      // Apply theme
+      document.documentElement.setAttribute("data-theme", settings.theme);
+
+      // Apply language - do this ONCE here
+      if (settings.language !== i18n.language) {
+        await i18n.changeLanguage(settings.language);
+      }
+
+      // Apply window size
+      await W.setSize({
+        width: settings.windowSize.width,
+        height: settings.windowSize.height,
+      });
+
+      // Apply window mode
+      if (settings.windowMode === "maximized") {
+        await W.maximize();
+      } else if (settings.windowMode === "fullscreen") {
+        await W.setFullScreen();
+      } else {
+        // Normal mode - ensure window is not maximized
+        await W.unmaximize();
+      }
+
+      // Show the window
       await W.show();
     })();
-  }, []);
+
+    // Handle window close event - save settings before exit
+    const handleWindowClose = async () => {
+      try {
+        // Get current settings from storage and save them again to ensure persistence
+        const currentSettings = await getSettings();
+        if (currentSettings) {
+          await saveSettings(currentSettings);
+        }
+      } catch (error) {
+        console.error("Failed to save settings on exit:", error);
+      } finally {
+        app.exit();
+      }
+    };
+
+    events.on("windowClose", handleWindowClose);
+
+    // Cleanup event listener
+    return () => {
+      events.off("windowClose", handleWindowClose);
+    };
+  }, []); // EMPTY DEPS - only run once!
 
   return (
-    <div className="flex flex-col h-screen">
+    <>
       <Header />
       <Main>
         <Switch>
@@ -74,6 +123,6 @@ export default function App() {
           <Route component={NotFound} />
         </Switch>
       </Main>
-    </div>
+    </>
   );
 }
