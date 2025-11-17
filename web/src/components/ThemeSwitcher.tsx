@@ -1,22 +1,30 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Icon } from "@iconify/react";
-
 // @ts-ignore
 import themesList from "daisyui/functions/themeOrder.js";
 
-export const ThemesDrawer = () => {
-  // this needs to be replaced in the future with app settings
-  const [theme, setTheme] = useState(() =>
-    document.documentElement.getAttribute("data-theme") || themesList[0]
-  );
+interface ThemesDrawerProps {
+  selectedTheme?: string;
+  onChange?: (theme: string) => void;
+}
+
+export const ThemesDrawer = (
+  { selectedTheme, onChange }: ThemesDrawerProps,
+) => {
+  const [theme, setTheme] = useState<string>(selectedTheme || themesList[0]);
+  const { t } = useTranslation();
+
+  useEffect(() => {
+    if (selectedTheme && selectedTheme !== theme) {
+      setTheme(selectedTheme);
+      document.documentElement.setAttribute("data-theme", selectedTheme);
+    }
+  }, [selectedTheme]);
 
   const handleThemeChange = (newTheme: string) => {
-    document.documentElement.setAttribute(
-      "data-theme",
-      newTheme || themesList[Math.floor(Math.random() * themesList.length)],
-    );
+    document.documentElement.setAttribute("data-theme", newTheme);
     setTheme(newTheme);
+    onChange?.(newTheme);
   };
 
   useEffect(() => {
@@ -28,68 +36,29 @@ export const ThemesDrawer = () => {
             themesList[themesList.length - 1];
           handleThemeChange(previousTheme);
         } else if (event.key === "ArrowRight" || event.key === "ArrowDown") {
-          const nextTheme = themesList[currentIndex + 1] ??
-            themesList[0];
+          const nextTheme = themesList[currentIndex + 1] ?? themesList[0];
           handleThemeChange(nextTheme);
         }
       }
     };
-
     document.addEventListener("keydown", handleKeyDown);
     return () => document.removeEventListener("keydown", handleKeyDown);
   }, [theme]);
 
-  const { t } = useTranslation();
-
   return (
-    <div className="drawer drawer-end z-50 w-min">
-      <input
-        id="my-drawer"
-        type="checkbox"
-        className="drawer-toggle"
-      />
-      <div className="drawer-content w-min" title={t("theme")}>
-        <label
-          htmlFor="my-drawer"
-          className="btn btn-lg btn-ghost btn-square"
+    <div>
+      {themesList.map((themeName: string) => (
+        <button
+          key={themeName}
+          className={`btn btn-sm m-1 ${
+            theme === themeName ? "btn-primary" : "btn-outline"
+          }`}
+          onClick={() => handleThemeChange(themeName)}
+          aria-label={t("theme") + ": " + themeName}
         >
-          <Icon
-            icon="ion:color-filter-sharp"
-            className="w-8 h-8"
-          />
-        </label>
-      </div>
-      <div className="drawer-side z-50">
-        <label
-          htmlFor="my-drawer"
-          aria-label="close sidebar"
-          className="drawer-overlay"
-        >
-        </label>
-        <ul className="text-base-content min-h-full w-80 select-none">
-          {themesList.sort().map((theme: string, index: number) => (
-            <li
-              key={`${theme}-${index}`}
-              className="capitalize p-2"
-              data-theme={theme}
-              onClick={() => handleThemeChange(theme)}
-            >
-              <div className="flex items-center">
-                {["bg-primary", "bg-secondary", "bg-accent"].map((
-                  color,
-                ) => (
-                  <div
-                    key={`${color}-${index}`}
-                    className={`w-4 h-4 rounded-full mr-2 ${color}`}
-                  >
-                  </div>
-                ))}
-                <span>{theme}</span>
-              </div>
-            </li>
-          ))}
-        </ul>
-      </div>
+          {themeName}
+        </button>
+      ))}
     </div>
   );
 };
